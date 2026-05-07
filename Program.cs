@@ -23,8 +23,25 @@ void Action()
 {
     PointF point1 = ReadPointF("Введите координаты точки 1");
     PointF point2 = ReadPointF("Введите координаты точки 2");
-    
-    double a = Math.Sqrt((point2.X - point1.X) * (point2.X - point1.X) +
+    PointF point3 = ReadPointF("Введите координаты точки 3");
+
+    double a = getDistance(point1, point2);
+    double b = getDistance(point2, point3);
+    double c = getDistance(point1, point3);
+
+    double s = getTriangleArea(a, b, c);
+
+    WriteLine($"s = {s:F2}");
+}
+
+double getDistance(PointF point1, PointF point2)
+{
+    return Math.Sqrt((point2.X - point1.X) * (point2.X - point1.X) +
         (point2.Y - point1.Y) * (point2.Y - point1.Y));
-    WriteLine(a);
+}
+
+double getTriangleArea(double a, double b, double c)
+{
+    double p = (a + b + c) / 2;
+    return Math.Sqrt(p * (p - a) * (p - b) * (p - c));
 }
