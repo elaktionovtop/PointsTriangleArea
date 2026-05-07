@@ -9,7 +9,9 @@ C# for Grandchildren: educational console application
 
 /*
 */
+using System.Drawing;
 using static System.Console;
+
 using static ConsoleLibrary.ConsoleApp;
 using static ConsoleLibrary.ConsoleIO;
 
@@ -19,4 +21,10 @@ PromptExitApp();
 
 void Action()
 {
+    PointF point1 = ReadPointF("Введите координаты точки 1");
+    PointF point2 = ReadPointF("Введите координаты точки 2");
+    
+    double a = Math.Sqrt((point2.X - point1.X) * (point2.X - point1.X) +
+        (point2.Y - point1.Y) * (point2.Y - point1.Y));
+    WriteLine(a);
 }
